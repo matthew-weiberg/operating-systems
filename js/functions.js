@@ -41,10 +41,12 @@ function runProgram() {
                 counter++;
             }
         }
-
+        var success_rate = ((wordRequest.length - counter)/wordRequest.length * 100).toFixed(2) + '%';
         document.getElementById('outputInterupts').innerHTML = ('<b>Total Interupts:</b> ' + counter);
-        document.getElementById('successRate').innerHTML = ('<b>Success Rate:</b> ' + ((wordRequest.length - counter)/wordRequest.length * 100).toFixed(2)) + '%';
+        document.getElementById('successRate').innerHTML = ('<b>Success Rate:</b> ' + success_rate);
     }
+
+    document.getElementById("progressBar").innerHTML = '<div class="w3-container w3-green w3-center" style="width:' + success_rate + '">' + success_rate + '</div>';
 }
 
 function swapPage(cache, currentPage) {
@@ -67,6 +69,7 @@ function resetProgram() {
     document.getElementById('memory_size').value = '';
     document.getElementById('page_size').value = '';
     document.getElementById('input_index').innerHTML = '';
+    document.getElementById("progressBar").innerHTML = '';
 }
 
 function initialValues() {
