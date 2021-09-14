@@ -90,6 +90,7 @@ function initialValues() {
             event.stopPropagation()
           }
 
+
           else if (form.checkValidity() == true) {
             event.preventDefault();
             runProgram();
