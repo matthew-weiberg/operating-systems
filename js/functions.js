@@ -7,14 +7,16 @@ function runProgram() {
     document.getElementById('header1').innerHTML = '<b>Word Found/Missing</b>';
     document.getElementById('header2').innerHTML = '<b>Word Page Number</b>';
     document.getElementById('header3').innerHTML = '<b>Page Load/Unload Sequence</b>';
-    moreNumbers = document.getElementById('input_index').value;
-    newNumbersArray = moreNumbers.split(',');
-    newNumbersArray.forEach(function(newNumber){
-        wordRequest.push(parseInt(newNumber, 10));
-    });
+    moreNumbers = document.getElementById('input_index');
+    if (moreNumbers && moreNumbers.value) {
+        newNumbersArray = moreNumbers.value.split(',');
+        newNumbersArray.forEach(function(newNumber){
+            wordRequest.push(parseInt(newNumber, 10));
+        });
+    }
     // wordRequest.push(document.getElementById('input_index').value);
 
-    const cache = (function(item) {
+    let cache = (function(item) {
         let array = [];
         while (item-- > 0)
         array.push(0);
@@ -39,8 +41,8 @@ function runProgram() {
         }
     }
 
-    document.getElementById('outputInterupts').innerHTML += ('<b>Total Interupts:</b> ' + counter);
-    document.getElementById('successRate').innerHTML += ('<b>Success Rate:</b> ' + ((wordRequest.length - counter)/wordRequest.length * 100).toFixed(2)) + '%';
+    document.getElementById('outputInterupts').innerHTML = ('<b>Total Interupts:</b> ' + counter);
+    document.getElementById('successRate').innerHTML = ('<b>Success Rate:</b> ' + ((wordRequest.length - counter)/wordRequest.length * 100).toFixed(2)) + '%';
 };
 
 function swapPage(cache, currentPage) {
