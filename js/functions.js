@@ -53,13 +53,10 @@ function swapPage(cache, currentPage) {
 };
 
 function pageNumber(word, pageSize) {
-    var page = 0;
-    if (word < pageSize) {
-        page = 0;
-    } else if (word > pageSize) {
-        page = (Math.ceil(word / pageSize) | 0);
+    if (word > pageSize) {
+        return (Math.ceil(word / pageSize) | 0);
     }
-    return page;
+    return 0;
 };
 
 function resetProgram() {
