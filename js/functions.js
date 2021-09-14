@@ -16,12 +16,11 @@ function runProgram() {
     }
     // wordRequest.push(document.getElementById('input_index').value);
 
-    let cache = (function(item) {
-        let array = [];
-        while (item-- > 0)
-        array.push(0);
-        return array;
-    })((memorySize / pageSize | 0));
+    var cache = [];
+    for (let i = (memorySize / pageSize | 0); i > 0; i--) {
+          cache.push(0);
+    }
+      
 
     for (var i = 0; i < wordRequest.length; i++) {
         currentPage = pageNumber(wordRequest[i], pageSize);
