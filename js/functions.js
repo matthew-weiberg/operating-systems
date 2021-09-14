@@ -25,8 +25,7 @@ function runProgram() {
     for (var i = 0; i < wordRequest.length; i++) {
         currentPage = pageNumber(wordRequest[i], pageSize);
         document.getElementById('pageNumber').innerHTML += ('Word ' + wordRequest[i] + ' is on page #' + currentPage + '<br>');
-        var page = void 0;
-        for (page = 0; page < cache.length; page++) {
+        for (var page = 0; page < cache.length; page++) {
             if (cache[page] === currentPage) {
                 document.getElementById('wordFound').innerHTML += ('Word ' + wordRequest[i] + ' Found' + '<br>');
                 break;
@@ -42,7 +41,7 @@ function runProgram() {
 
     document.getElementById('outputInterupts').innerHTML = ('<b>Total Interupts:</b> ' + counter);
     document.getElementById('successRate').innerHTML = ('<b>Success Rate:</b> ' + ((wordRequest.length - counter)/wordRequest.length * 100).toFixed(2)) + '%';
-};
+}
 
 function swapPage(cache, currentPage) {
     document.getElementById('loadSequence').innerHTML += ('Loading page #' + currentPage + '. Unloading page #' + cache[1] + '.<br>');
@@ -50,14 +49,14 @@ function swapPage(cache, currentPage) {
         cache[i] = cache[i + 1];
     }
     cache[cache.length - 1] = currentPage;
-};
+}
 
 function pageNumber(word, pageSize) {
     if (word > pageSize) {
         return (Math.ceil(word / pageSize) | 0);
     }
     return 0;
-};
+}
 
 function resetProgram() {
     $('.outputDetails').empty();
