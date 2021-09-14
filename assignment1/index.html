@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <script src="js/functions.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/fontawesome.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/progress-bar.css">
+    </head>
+
+    <body>
+        <div class="container-fluid pt-4 pb-5 pl-3 d-flex justify-content-center">
+            <div class="card" style="width: 70rem;">
+                <div class="card-header">
+                    <h4>Page and Memory Processing</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row pb-2">
+                    <div class="col-md-6">
+                        <label for="InputLastName" class="form-label">Memory Size</label>
+                        <input type="text" class="form-control" id="memory_size" value="200" required>
+                        <div class="valid-feedback">Valid input!</div>
+                        <div class="invalid-feedback">Enter a numerical value.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="InputLastName" class="form-label">Page Size</label>
+                        <input type="text" class="form-control" id="page_size" value="100" required>
+                        <div class="valid-feedback">Valid input!</div>
+                        <div class="invalid-feedback">Enter a numerical value.</div>
+                    </div>
+                </div>
+                    <label>Input Word Index</label><textarea class="form-control" id="input_index" onkeyup="this.value=this.value.replace(/[^\d,]/g,'')"></textarea>
+                    <small class="form-text text-muted">Only numerical inputs (0-9) and commas are allowed.</small><br><br>
+                    <input type="button" value="Run Program" class="btn btn-outline-primary" onclick="runProgram();" />
+                    <input type="button" value="Reset Program" class="btn btn-outline-danger" onclick="resetProgram();" />
+                </div>
+            </div>
+        </div>
+            
+        <div class="container-fluid pt-4 pb-5 pl-3 d-flex justify-content-center">
+            <div class="card" style="width: 70rem;">
+                <div class="card-header">
+                    <h4>User Output</h4>
+                </div>
+                <div class="card-body" id="userOutput">
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-sm" id="container1">
+                            <h5 id="header1" class="outputDetails"></h5>
+                            <div id="wordFound" class="outputDetails"></div>
+                        </div>
+                        <div class="col-sm" id="container1">
+                            <h5 id="header2" class="outputDetails"></h5>
+                            <div id="pageNumber" class="outputDetails"></div>
+                        </div>
+                        <div class="col-sm" id="container1">
+                            <h5 id="header3" class="outputDetails"></h5>
+                            <div id="loadSequence" class="outputDetails"></div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div id="outputInterupts" class="outputDetails"></div>
+                    <div id="successRate" class="outputDetails"></div>
+
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
