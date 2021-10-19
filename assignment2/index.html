@@ -16,43 +16,40 @@
                 <div class="card-header">
                     <h4>FCFS Scheduling Program</h4>
                 </div>
-                <div class="card-body">
-                    <form class="needs-validation" novalidate>
-                    <div class="row pb-2">
-                        <div class="col-md-6">
-                            <label class="form-label" for="userProcessNumber">Select Number of Processes</label>
-                            <select class="form-select form-select" aria-label=".form-select-sm example" id="userProcessNumber" required>
-                                <option selected disabled value="">Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">Four</option>
-                                <option value="5">Five</option>
-                                <option value="6">Six</option>
-                                <option value="7">Seven</option>
-                                <option value="8">Eight</option>
-                                <option value="9">Nine</option>
-                                <option value="10">Ten</option>
-                            </select>
-                            <div class="valid-feedback">Valid input!</div>
-                            <div class="invalid-feedback">Select a numerical value.</div>
+                <div class="card-body" id="userInputContainer">
+                    <form class="needs-validation form-inline" novalidate>
+                        <div class="row pb-2">
+                            <div class="col-md-4">
+                                <label class="form-label" for="userProcessNumber">Select Number of Processes</label>
+                                <select class="form-select" aria-label=".form-select-sm" id="userProcessNumber" onChange="onUserProcessNumberInput();" required>
+                                    <option selected disabled value="">Please select a value...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    <option value="4">Four</option>
+                                    <option value="5">Five</option>
+                                    <option value="6">Six</option>
+                                    <option value="7">Seven</option>
+                                    <option value="8">Eight</option>
+                                    <option value="9">Nine</option>
+                                    <option value="10">Ten</option>
+                                </select>
+                                <div class="valid-feedback">Valid input!</div>
+                                <div class="invalid-feedback">Select a numerical value.</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div id="processDurationHeader"></div>
+                                <div id="processorDurationContainer1" class="row pl-3"></div>
+                            </div>
+                            <div class="col-md-4 pt-4">
+                                <div id="processorDurationContainer2" class="row"></div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label" for="page_size">Page Size</label>
-                            <input type="text" class="form-control" id="page_size" value="100" required>
-                            <div class="valid-feedback">Valid input!</div>
-                            <div class="invalid-feedback">Enter a numerical value.</div>
+                        <div class="pt-2">
+                            <button type="submit" id="submitBtn" class="btn btn-outline-primary shadow-none">Submit</button>
+                            <input type="button" value="Reset Program" class="btn btn-outline-danger shadow-none" onclick="resetProgram();" />
                         </div>
-                    </div>
-                    <label>Input Word Index</label>
-                    <textarea class="form-control" id="input_index" onkeyup="this.value=this.value.replace(/[^\d,]/g,'')" required>10,11,104,170,73,309,185,245,246,434,458,364</textarea>
-                    <small class="form-text text-muted">Only numerical inputs (0-9) and commas are allowed.</small>
-                    <div class="valid-feedback">Valid input!</div>
-                    <div class="invalid-feedback">Enter numerical values separated by a comma.</div><br><br>
-                    <button type="submit" id="submitBtn" class="btn btn-outline-primary">Submit</button>
-                    <input type="button" value="Reset Program" class="btn btn-outline-danger" onclick="resetProgram();" />
-                    <input type="button" value="Initial Values" class="btn btn-outline-secondary" onclick="initialValues();" />
-                </form>
+                    </form>
                 </div>
             </div>
         </div>
@@ -63,27 +60,12 @@
                     <h4>User Output</h4>
                 </div>
                 <div class="card-body" id="userOutput">
-                    <div class="container">
-                        <div class="row">
-                        <div class="col-sm" id="container1">
-                            <h5 id="header1" class="outputDetails"></h5>
-                            <div id="wordFound" class="outputDetails"></div>
-                        </div>
-                        <div class="col-sm" id="container2">
-                            <h5 id="header2" class="outputDetails"></h5>
-                            <div id="pageNumber" class="outputDetails"></div>
-                        </div>
-                        <div class="col-sm" id="container3">
-                            <h5 id="header3" class="outputDetails"></h5>
-                            <div id="loadSequence" class="outputDetails"></div>
-                        </div>
-                        </div>
+                    <div class="container" id="userOutputTableContainer">
                     </div>
                 </div>
                 <div class="card-footer">
-                    <div id="outputInterupts" class="outputDetails"></div>
-                    <div id="successRate" class="outputDetails"></div>
-                    <div class="w3-light-grey" id="progressBar">
+                    <div id="footerHeader"></div>
+                    <div class="progress" id="progressBarFooter" style="height: 25px;">
                     </div>
                 </div>
             </div>
