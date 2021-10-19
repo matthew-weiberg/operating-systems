@@ -117,7 +117,9 @@ function onUserProcessNumberInput() {
 }
 
 function resetProgram() {
-  $("#userInputContainer").load(" #userInputContainer > *");
+  $("#processorDurationContainer1").load(" #processorDurationContainer1 > *");
+  $("#processorDurationContainer2").load(" #processorDurationContainer2 > *");
+  $("#userProcessNumberContainer").load(" #userProcessNumberContainer > *");
   document.getElementById('userOutputTableContainer').innerHTML = "";
   document.getElementById('progressBarFooter').innerHTML = "";
 }
