@@ -118,4 +118,6 @@ function onUserProcessNumberInput() {
 
 function resetProgram() {
   $("#userInputContainer").load(" #userInputContainer > *");
+  document.getElementById('userOutputTableContainer').innerHTML = "";
+  document.getElementById('progressBarFooter').innerHTML = "";
 }
