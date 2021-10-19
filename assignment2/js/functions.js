@@ -1,5 +1,6 @@
 function runProgram() {
   document.getElementById('userOutputTableContainer').innerHTML = "";
+  document.getElementById('progressBarFooter').innerHTML = "";
   const average = (array) => array.reduce((a, b) => a + b) / array.length;
   let userInputValue = document.getElementById('userProcessNumber').value;
   let userInputDurationArray = [];
